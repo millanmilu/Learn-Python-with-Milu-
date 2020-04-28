@@ -1,0 +1,42 @@
+class Contact:
+    all_contacts= []
+
+    def __init__(self,name='',email='',**kwargs):
+        super().__init__(**kwargs)
+        self.name= name
+        self.email = email
+        self.all_contacts.append(self)
+class AddressHolder:
+    def __init__(self,street ='',city ='',state='',code='',**kwargs):
+        super().__init__(**kwargs)
+        self.street =street
+        self.city =city
+        self.state =state
+        self.code =code
+class Friend(Contact,AddressHolder):
+    def __init__(self,phone = '',**kwargs):
+        super().__init__(**kwargs)
+        self.phone = phone
+    def print(self):
+        print(self.name,self.email,self.street,self.city,self.state,self.code,self.phone)
+
+name = input("Enter Your Name : ")
+email = input("Enter your Email :")
+street = input("Enter Your Street : ")
+city =input("Enter Your City Name : ")
+state = input("Enter Your State Name : ")
+code = input("Enter Your Pin Code : ")
+phone = input("Enter Your Phone Number : ")
+c= Contact(name,email)
+add= AddressHolder(street,city,state,code)
+f = Friend(phone)
+#print("Your Name is : " + c.name)
+#print("Your Email is : "+c.email)
+#print("Your Street is : "+add.street)
+#print("Your City Name is : "+add.city)
+#print("Your State Name is : "+add.state)
+#print("Your Pin Code is : "+add.code)
+#print("Your Phone Number is: " +f.phone)
+#f.print()
+print(Contact.all_contacts)
+print()
